@@ -35,32 +35,38 @@ limitations under the License.
 
 > Reflect the upper triangular part of a matrix A into the lower triangular part of another matrix B.
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/blas-ext-base-gtriu2tril
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
+To use in Observable,
+
 ```javascript
-var gtriu2tril = require( '@stdlib/blas-ext-base-gtriu2tril' );
+gtriu2tril = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-gtriu2tril@umd/browser.js' )
+```
+
+To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
+
+```javascript
+var gtriu2tril = require( 'path/to/vendor/umd/blas-ext-base-gtriu2tril/index.js' )
+```
+
+To include the bundle in a webpage,
+
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-gtriu2tril@umd/browser.js"></script>
+```
+
+If no recognized module system is present, access bundle contents via the global scope:
+
+```html
+<script type="text/javascript">
+(function () {
+    window.gtriu2tril;
+})();
+</script>
 ```
 
 #### gtriu2tril( order, M, N, k, A, LDA, B, LDB )
@@ -174,12 +180,17 @@ gtriu2tril.ndarray( 2, 2, 0, A, 2, 1, 0, B, 2, 1, 2 );
 
 <!-- eslint-disable max-len -->
 
-```javascript
-var ndarray2array = require( '@stdlib/ndarray-base-to-array' );
-var uniform = require( '@stdlib/random-array-discrete-uniform' );
-var numel = require( '@stdlib/ndarray-base-numel' );
-var shape2strides = require( '@stdlib/ndarray-base-shape2strides' );
-var gtriu2tril = require( '@stdlib/blas-ext-base-gtriu2tril' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-to-array@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-numel@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-shape2strides@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-gtriu2tril@umd/browser.js"></script>
+<script type="text/javascript">
+(function () {
 
 var shape = [ 5, 8 ];
 var order = 'row-major';
@@ -201,6 +212,11 @@ console.log( ndarray2array( B, shapeB, stridesB, 0, order ) );
 
 gtriu2tril( order, shape[ 0 ], shape[ 1 ], 0, A, strides[ 0 ], B, stridesB[ 0 ] );
 console.log( ndarray2array( B, shapeB, stridesB, 0, order ) );
+
+})();
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -285,7 +301,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/array/base/accessor]: https://github.com/stdlib-js/array-base-accessor
+[@stdlib/array/base/accessor]: https://github.com/stdlib-js/array-base-accessor/tree/umd
 
 </section>
 
